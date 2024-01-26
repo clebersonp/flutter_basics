@@ -14,6 +14,7 @@ void main() {
   runApp(
     const MaterialApp(
       home: Scaffold(
+        backgroundColor: Color.fromARGB(255, 67, 16, 155),
         body: Center(
           child: Text('Hello World! ;)'),
         ),

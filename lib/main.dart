@@ -11,5 +11,5 @@ void main() {
   // and MaterialApp wrapped Text widget, creating the widget tree.
   // the const keyword is used for dart performance and it's used a lot
   // (singleton pattern)
-  runApp(const MaterialApp(home: Text('Hello World!;)')));
+  runApp(const MaterialApp(home: Scaffold(body: Center(child: Text('Hello World! ;)')))));
 }

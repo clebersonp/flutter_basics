@@ -12,7 +12,7 @@ void main() {
   // the const keyword is used for dart performance and it's used a lot
   // (singleton pattern)
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: Scaffold(
         body: GradientContainer(),
       ),
@@ -22,6 +22,12 @@ void main() {
 
 // Creating a class for a custom widget
 class GradientContainer extends StatelessWidget {
+  // class's constructor and passing the key argument forwards to parents class
+  // const GradientContainer({key}) : super(key: key);
+
+  // short way to define a constructor and passing the argument forward
+  const GradientContainer({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Container widget is useful for configuring and styling layouts

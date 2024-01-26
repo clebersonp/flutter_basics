@@ -1,6 +1,8 @@
 // import packages and functions from flutter framework or any other
 // third-party feature
 import 'package:flutter/material.dart';
+// import my custom widgets
+import 'package:flutter_basics/custom_containers/gradient_container.dart';
 
 // method main is the entry point for flutter and it must in the main.dart
 // file as well
@@ -18,37 +20,4 @@ void main() {
       ),
     ),
   );
-}
-
-// Creating a class for a custom widget
-class GradientContainer extends StatelessWidget {
-  // class's constructor and passing the key argument forwards to parents class
-  // const GradientContainer({key}) : super(key: key);
-
-  // short way to define a constructor and passing the argument forward
-  const GradientContainer({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // Container widget is useful for configuring and styling layouts
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: <Color>[Colors.deepOrange, Colors.orangeAccent],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: const Center(
-        child: Text(
-          'Hello World! ;)',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 28.0,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-      ),
-    );
-  }
 }

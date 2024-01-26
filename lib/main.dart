@@ -12,13 +12,21 @@ void main() {
   // the const keyword is used for dart performance and it's used a lot
   // (singleton pattern)
   runApp(
-    const MaterialApp(
+    MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 67, 16, 155),
-        body: Center(
-          child: Text('Hello World! ;)'),
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: <Color>[Colors.deepOrange, Colors.orangeAccent],
+            ),
+          ),
+          child: const Center(
+            child: Text('Hello World! ;)'),
+          ),
         ),
       ),
     ),
   );
+
+  // Container widget is useful for configuring and styling layouts
 }

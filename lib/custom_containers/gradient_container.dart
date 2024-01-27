@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// importing my custom widget
-import 'package:flutter_basics/style/styled_text.dart';
 
 // creating variables with keyword 'const'
 // const is dynamic typed and can't be override
@@ -17,6 +15,14 @@ class GradientContainer extends StatelessWidget {
   // short way to define a constructor and passing the argument forward
   const GradientContainer(this.colors, {super.key});
 
+  // another constructor function with default values
+  // like the Image.asset('') constructor
+  const GradientContainer.purple({super.key})
+      : colors = const <Color>[
+          Color.fromARGB(255, 71, 29, 152),
+          Color.fromARGB(255, 150, 115, 248)
+        ];
+
   final List<Color> colors;
 
   @override
@@ -30,11 +36,10 @@ class GradientContainer extends StatelessWidget {
           end: endAlignment,
         ),
       ),
-      child: const Center(
-        child: StyledText(
-          'Hello World! ;)',
-          fontSize: 35.0,
-          fontWeight: FontWeight.w500,
+      child: Center(
+        child: Image.asset(
+          'assets/images/dice-2.png',
+          width: 200,
         ),
       ),
     );

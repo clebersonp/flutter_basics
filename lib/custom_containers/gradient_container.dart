@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 // importing my custom widget
 import 'package:flutter_basics/style/styled_text.dart';
 
-// creating variables with keyword 'var'
-// var is dynamic typed and can be override
-var startAlignment = Alignment.topLeft;
-var endAlignment = Alignment.bottomRight;
+// creating variables with keyword 'const'
+// const is dynamic typed and can't be override
+// const is a final variable that dart use in compile time
+// final is a final variable that can be assigned dynamic in runtime
+const startAlignment = Alignment.topLeft;
+const endAlignment = Alignment.bottomRight;
 
 // Creating a class for a custom widget
 class GradientContainer extends StatelessWidget {
@@ -19,9 +21,9 @@ class GradientContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     // Container widget is useful for configuring and styling layouts
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: const <Color>[Colors.deepOrange, Colors.orangeAccent],
+          colors: <Color>[Colors.deepOrange, Colors.orangeAccent],
           begin: startAlignment,
           end: endAlignment,
         ),

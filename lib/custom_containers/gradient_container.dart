@@ -15,15 +15,17 @@ class GradientContainer extends StatelessWidget {
   // const GradientContainer({key}) : super(key: key);
 
   // short way to define a constructor and passing the argument forward
-  const GradientContainer({super.key});
+  const GradientContainer(this.colors, {super.key});
+
+  final List<Color> colors;
 
   @override
   Widget build(BuildContext context) {
     // Container widget is useful for configuring and styling layouts
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: <Color>[Colors.deepOrange, Colors.orangeAccent],
+          colors: colors,
           begin: startAlignment,
           end: endAlignment,
         ),

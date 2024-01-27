@@ -1,5 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+// random is from dart math
+final randomizer = Random(DateTime.timestamp().millisecond);
 
 // every widget that has they value changed must be a 'stateful widget'
 class DiceRoller extends StatefulWidget {
@@ -19,14 +24,14 @@ class DiceRoller extends StatefulWidget {
 // that will be they variables changed to update the UI widget if the new value
 class _DiceRollerState extends State<DiceRoller> {
   // variable for changing the assets value and change dice number
-  var activeDiceImage = 'assets/images/dice-2.png';
+  var currentDiceNumber = 1;
 
   // this method will be executed, but to update the UI widget we must call a
   // especial function called 'setState((){})' that will be responsible to
   // call the build(BuildContext context) at the end of the process
   void rollDice() {
     setState(() {
-      activeDiceImage = 'assets/images/dice-4.png';
+      currentDiceNumber = randomizer.nextInt(6) + 1; // from 1 to 6
       if (kDebugMode) {
         print('Inside setState() -> Changing image...');
       }
@@ -43,7 +48,7 @@ class _DiceRollerState extends State<DiceRoller> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Image.asset(activeDiceImage, width: 200),
+        Image.asset('assets/images/dice-$currentDiceNumber.png', width: 200),
         const SizedBox(height: 20),
         TextButton(
           onPressed: rollDice,

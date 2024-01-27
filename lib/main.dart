@@ -16,9 +16,7 @@ void main() {
   runApp(
     const MaterialApp(
       home: Scaffold(
-        body: GradientContainer(
-          <Color>[Colors.deepPurple, Color.fromARGB(255, 150, 115, 248)],
-        ),
+        body: GradientContainer.purple(),
       ),
     ),
   );

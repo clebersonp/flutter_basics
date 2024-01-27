@@ -14,7 +14,7 @@ void main() {
   // the const keyword is used for dart performance and it's used a lot
   // (singleton pattern)
   runApp(
-    const MaterialApp(
+    MaterialApp(
       home: Scaffold(
         body: GradientContainer.purple(),
       ),

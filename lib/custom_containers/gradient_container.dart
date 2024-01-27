@@ -13,11 +13,11 @@ class GradientContainer extends StatelessWidget {
   // const GradientContainer({key}) : super(key: key);
 
   // short way to define a constructor and passing the argument forward
-  const GradientContainer(this.colors, {super.key});
+  GradientContainer(this.colors, {super.key});
 
   // another constructor function with default values
   // like the Image.asset('') constructor
-  const GradientContainer.purple({super.key})
+  GradientContainer.purple({super.key})
       : colors = const <Color>[
           Color.fromARGB(255, 71, 29, 152),
           Color.fromARGB(255, 150, 115, 248)
@@ -25,7 +25,13 @@ class GradientContainer extends StatelessWidget {
 
   final List<Color> colors;
 
-  void rollDice() {}
+  // variable for changing the assets value and change dice number
+  var activeDiceImage = 'assets/images/dice-2.png';
+
+  void rollDice() {
+    activeDiceImage = 'assets/images/dice-4.png';
+    print('Changing image...');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,14 +48,13 @@ class GradientContainer extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset('assets/images/dice-2.png', width: 200),
+            Image.asset(activeDiceImage, width: 200),
             const SizedBox(height: 20),
             TextButton(
               onPressed: rollDice,
               style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                textStyle: const TextStyle(fontSize: 28.0),
-              ),
+                  foregroundColor: Colors.white,
+                  textStyle: const TextStyle(fontSize: 28.0)),
               child: const Text('Roll Dice'),
             ),
           ],
